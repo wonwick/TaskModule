@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "709239773985",
+    "firebase_url": "https://sparktectaskmodule.firebaseio.com",
+    "project_id": "sparktectaskmodule",
+    "storage_bucket": "sparktectaskmodule.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:709239773985:android:8640e5697c4d8dcb",
+        "android_client_info": {
+          "package_name": "com.won.taskmodule"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "709239773985-9n9tr9hsnk790rhbtoe43kurj00e0ve7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.won.taskmodule",
+            "certificate_hash": "22c60c59d334e88cc7d461990e3a061b5aee5e8d"
+          }
+        },
+        {
+          "client_id": "709239773985-gq4en2cokbj1jkirb2uediskdn3s3css.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEUlmbMLmmJqhiNZZ8he1_muiSTRkWins"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "709239773985-gq4en2cokbj1jkirb2uediskdn3s3css.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
