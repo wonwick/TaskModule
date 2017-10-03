@@ -42,4 +42,11 @@ public class VehicleOwnerActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+
+
+    }
 }

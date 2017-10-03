@@ -1,7 +1,9 @@
 package com.won.taskmodule;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,17 +19,22 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AvailableTasksActivity extends AppCompatActivity {
+public class AcceptedTasksListActivity extends AppCompatActivity {
+
     ListView listViewTask;
     DatabaseReference databaseTasks;
     List<Task> tasks;
+    SharedPreferences sharedPreferences;
+    String userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_tasks);
         listViewTask = (ListView) findViewById(R.id.listViewTasks);
-        databaseTasks = FirebaseDatabase.getInstance().getReference("OverviewAvailableTask");
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        userName = sharedPreferences.getString("appUser", "");
+        databaseTasks = FirebaseDatabase.getInstance().getReference("acceptedTasks").child(userName);
         tasks = new ArrayList<>();
 
         listViewTask.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -37,7 +44,7 @@ public class AvailableTasksActivity extends AppCompatActivity {
                 Task task = tasks.get(i);
 
                 //creating an intent
-                Intent intent = new Intent(getApplicationContext(), TaskActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AcceptedTaskActivity.class);
 
                 //putting artist name and id to intent
                 intent.putExtra("TASK_ID", task.getId());
@@ -74,7 +81,7 @@ public class AvailableTasksActivity extends AppCompatActivity {
                 }
 
                 //creating adapter
-                TaskList taskAdapter = new TaskList(AvailableTasksActivity.this, tasks);
+                TaskList taskAdapter = new TaskList(AcceptedTasksListActivity.this, tasks);
                 //attaching adapter to the listview
                 listViewTask.setAdapter(taskAdapter);
             }
@@ -86,4 +93,10 @@ public class AvailableTasksActivity extends AppCompatActivity {
         });
     }
 
+
+    public void onBackPressed() {
+        startActivity(new Intent(AcceptedTasksListActivity.this, EmployeeActivity.class));
+        finish();
+
+    }
 }

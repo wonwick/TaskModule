@@ -10,10 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import org.apache.http.client.ClientProtocolException;
-
-import java.io.IOException;
-
 public class LoginActivity extends AppCompatActivity {
     EditText editTextUserName;
     EditText editTextPassword;
@@ -57,6 +53,14 @@ public class LoginActivity extends AppCompatActivity {
         Log.d("button clicked","button clicked logging");
         authenticate();
     }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+
+
+    }
+
     class LoginRequest extends SendPostRequest{
 
         @Override

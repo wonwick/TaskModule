@@ -20,6 +20,8 @@ import java.util.Date;
 
 public class TaskActivity extends AppCompatActivity {
     DatabaseReference AvailableTask;
+    DatabaseReference unavailableTask;
+    DatabaseReference unavailableTaskOverview;
     TextView textViewContactName ;
     TextView textViewContactNumber ;
     TextView textViewDeadline ;
@@ -63,6 +65,8 @@ public class TaskActivity extends AppCompatActivity {
         AvailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
+        unavailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
+        unavailableTaskOverview = FirebaseDatabase.getInstance().getReference("OverviewAvailableTask").child(taskId);
     }
 
     @Override
@@ -72,6 +76,7 @@ public class TaskActivity extends AppCompatActivity {
         AvailableTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                try {
                 DetailedTask detailedTask = dataSnapshot.getValue(DetailedTask.class);
                 Log.d("contactName", detailedTask.getContactName());
                 contactName = detailedTask.getContactName();
@@ -82,7 +87,10 @@ public class TaskActivity extends AppCompatActivity {
                 textViewContactName.setText(contactName);
                 textViewContactNumber.setText(contactNumber);
                 textViewDeadline.setText(deadline);
-                textViewDescription.setText(description);
+                    textViewDescription.setText(description);
+                } catch (Exception e) {
+                    Log.e("nullValueException", "this happens becouse of onDataChange triggers after delete");
+                }
             }
 
             @Override
@@ -94,6 +102,7 @@ public class TaskActivity extends AppCompatActivity {
 
     void goToAcceptedTaskView(View view) {
         addToAcceptedTasks();
+        removeFromAvailableTasks();
         Intent goToAcceptedTasks = new Intent(TaskActivity.this, AcceptedTaskActivity.class);
         goToAcceptedTasks.putExtra("TASK_ID", taskId);
         startActivity(goToAcceptedTasks);
@@ -118,4 +127,38 @@ public class TaskActivity extends AppCompatActivity {
 
     }
 
+    void removeFromAvailableTasks() {
+        unavailableTask.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot detailsSnapshot : dataSnapshot.getChildren()) {
+                    detailsSnapshot.getRef().removeValue();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+        unavailableTaskOverview.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot detailsSnapshot : dataSnapshot.getChildren()) {
+                    detailsSnapshot.getRef().removeValue();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

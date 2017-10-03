@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 public class EmployeeActivity extends AppCompatActivity {
-
+    private Boolean exit = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +44,22 @@ public class EmployeeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     void goToAvailableActivity(View view) {
-        Intent intent = new Intent(EmployeeActivity.this, AvailableTasksActivity.class);
+        Intent intent = new Intent(EmployeeActivity.this, AvailableTasksListActivity.class);
         startActivity(intent);
+
+    }
+
+    void goToAcceptedTaskList(View view) {
+        Intent intent = new Intent(EmployeeActivity.this, AcceptedTasksListActivity.class);
+        startActivity(intent);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+
+
 
     }
 }

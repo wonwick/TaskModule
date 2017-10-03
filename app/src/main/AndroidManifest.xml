@@ -14,15 +14,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EmployeeActivity">
-        </activity>
-        <activity android:name=".AvailableTasksActivity" />
-        <activity android:name=".TaskActivity" />
-        <activity android:name=".AcceptedTaskActivity" />
-        <activity android:name=".LoginActivity">
-        </activity>
-        <activity android:name=".VehicleOwnerActivity" />
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".EmployeeActivity"
+            android:label="Employee View"></activity>
+        <activity
+            android:name=".AvailableTasksListActivity"
+            android:label="Available Task List" />
+        <activity
+            android:name=".TaskActivity"
+            android:label="Available Task" />
+        <activity
+            android:name=".AcceptedTaskActivity"
+            android:label="Accepted Task" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="Login"></activity>
+        <activity
+            android:name=".VehicleOwnerActivity"
+            android:label="vehicle Owner View" />
+        <activity
+            android:name=".SplashActivity"
             android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".AcceptedTasksListActivity"
+            android:label="Accepted Task List"></activity>
     </application>
 
 </manifest>
