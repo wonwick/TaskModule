@@ -25,6 +25,7 @@
             android:label="Available Task" />
         <activity
             android:name=".AcceptedTaskActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan"
             android:label="Accepted Task" />
         <activity
             android:name=".LoginActivity"

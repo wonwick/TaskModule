@@ -91,6 +91,62 @@
             android:text="AcceptedDate" />
     </TableRow>
 
+    <ScrollView
+        android:id="@+id/ScrollViewChat"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
 
+        <TableLayout
+            android:id="@+id/tableLayoutChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </TableLayout>
+    </ScrollView>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:text="" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendMessage"
+            android:text="Send" />
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_marginTop="50dp"
+            android:id="@+id/buttonCompleteTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="psudoAction"
+            android:text="Task completed" />
+
+    </TableRow>
 </LinearLayout>

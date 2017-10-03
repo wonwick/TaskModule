@@ -2,9 +2,18 @@ package com.won.taskmodule;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -12,6 +21,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 public class AcceptedTaskActivity extends AppCompatActivity {
     String taskId;
@@ -25,8 +37,9 @@ public class AcceptedTaskActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences ;
     String userName;
-    DatabaseReference acceptedTask;
 
+
+    ScrollView scrolview;
     TextView textViewContactName ;
     TextView textViewContactNumber ;
     TextView textViewDeadline ;
@@ -35,6 +48,12 @@ public class AcceptedTaskActivity extends AppCompatActivity {
     TextView textViewTaskID ;
     TextView textViewTaskArea ;
     TextView textViewAcceptedDate;
+    EditText editTextMessage;
+    private static FirebaseDatabase fbdb;
+    TableLayout tableLayoutChat;
+    static boolean calledAlready = false;
+//     acceptedTask;
+//    DatabaseReference chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +65,14 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         taskId = intent.getStringExtra("TASK_ID");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
-        acceptedTask = FirebaseDatabase.getInstance().getReference("acceptedTasks").child(userName).child(taskId);
+
+
+
+        if (fbdb==null)
+        {
+            fbdb=FirebaseDatabase.getInstance();
+        }
+        scrolview=(ScrollView) findViewById(R.id.ScrollViewChat);
 
         textViewTaskName = (TextView) findViewById(R.id.textViewTaskName);
         textViewTaskID = (TextView) findViewById(R.id.textViewTaskID);
@@ -57,12 +83,17 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         textViewDeadline = (TextView) findViewById(R.id.textViewDeadline);
         textViewDescription = (TextView) findViewById(R.id.textViewDescription);
         textViewAcceptedDate= (TextView) findViewById(R.id.textViewAcceptedDate);
+
+        tableLayoutChat=(TableLayout) findViewById(R.id.tableLayoutChat);
+
+        editTextMessage=(EditText) findViewById(R.id.editTextMessage);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
         //attaching value event listener
+        DatabaseReference acceptedTask = fbdb.getReference("acceptedTasks").child(userName).child(taskId);
         acceptedTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -94,6 +125,73 @@ public class AcceptedTaskActivity extends AppCompatActivity {
 
             }
         });
+        DatabaseReference chat=fbdb.getReference("chat").child(taskId);
+
+        chat.addValueEventListener(new ValueEventListener() {
+            //chat is handled here
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                tableLayoutChat.removeAllViews();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //getting artist;
+                    ChatMessage chatMessage = postSnapshot.getValue(ChatMessage.class);
+                    String theMessege=chatMessage.getMessage();
+                    String theSender=chatMessage.getSender();
+                    String theTime=chatMessage.getTime();
+
+
+                    TableRow header=new TableRow(AcceptedTaskActivity.this);
+                    ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(
+                            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    header.setLayoutParams(params);
+
+                    TextView sender = new TextView(AcceptedTaskActivity.this);
+                    sender.setGravity(Gravity.LEFT);
+                    if (theSender.equals(userName)){
+                        sender.setTextColor(Color.BLUE);
+                    }
+                    else{
+                        sender.setTextColor(Color.GREEN);
+                    }
+                    sender.setText(theSender);
+
+                    TextView time = new TextView(AcceptedTaskActivity.this);
+                    time.setGravity(Gravity.LEFT);
+                    time.setTextColor(Color.GRAY);
+                    time.setText("theTime");
+
+
+                    TableRow body=new TableRow(AcceptedTaskActivity.this);
+                    body.setLayoutParams(params);
+                    TextView message = new TextView(AcceptedTaskActivity.this);
+                    message.setGravity(Gravity.LEFT);
+
+                    message.setText(theMessege);
+
+                    TableRow spacing=new TableRow(AcceptedTaskActivity.this);
+                    spacing.setLayoutParams(params);
+                    TextView space = new TextView(AcceptedTaskActivity.this);
+
+
+                    header.addView(sender);
+                    header.addView(time);
+                    body.addView(message);
+                    spacing.addView(space);
+
+                    tableLayoutChat.addView(header, params);
+                    tableLayoutChat.addView(body, params);
+                    tableLayoutChat.addView(spacing,params);
+                    scrolview.fullScroll(ScrollView.FOCUS_DOWN);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     @Override
@@ -102,4 +200,30 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         finish();
 
     }
+
+    void psudoAction(View view) {
+        //do nothing
+        /*Oct 3, 2017 12:06:36 PMaddclose
+        sherlock:
+        "first chatEntry"
+        Oct 3, 2017 12:08:36 PM
+        admin:
+        "reply for the first Entry"
+        Oct 3, 2017 12:11:36 PM:
+        "second chat entry"*/
+
+    }
+
+    void sendMessage(View view) {
+        String textMessage=editTextMessage.getText().toString();
+        DatabaseReference chat=FirebaseDatabase.getInstance().getReference("chat").child(taskId).push();
+        chat.child("sender").setValue(userName);
+        chat.child("message").setValue(textMessage);
+        chat.child("time").setValue(DateFormat.getDateTimeInstance().format(new Date()));
+        editTextMessage.setText("");
+
+        scrolview.fullScroll(ScrollView.FOCUS_DOWN);
+
+    }
+
 }

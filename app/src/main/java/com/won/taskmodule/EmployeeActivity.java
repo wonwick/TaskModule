@@ -62,4 +62,8 @@ public class EmployeeActivity extends AppCompatActivity {
 
 
     }
+    void psudoAction(View view) {
+        //do nothing
+
+    }
 }
