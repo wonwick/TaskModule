@@ -55,6 +55,21 @@ public class EmployeeActivity extends AppCompatActivity {
 
     }
 
+    void goToEmpDetailsActivity(View view) {
+        Intent intent = new Intent(EmployeeActivity.this, EmpDetailsActivity.class);
+        startActivity(intent);
+
+    }
+
+    void goToEmpVehicleDetailsActivity(View view) {
+        Intent intent = new Intent(EmployeeActivity.this, VehicleDetailsActivity.class);
+        startActivity(intent);
+
+    }
+
+
+
+
     @Override
     public void onBackPressed() {
         moveTaskToBack(true);

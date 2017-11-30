@@ -116,6 +116,8 @@ public class SendPostRequest extends AsyncTask<Void, Void, String> {
             writer.close();
             os.close();
 
+
+
             int responseCode = conn.getResponseCode();
 
             if (responseCode == HttpsURLConnection.HTTP_OK) {

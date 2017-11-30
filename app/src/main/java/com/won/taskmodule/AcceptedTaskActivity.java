@@ -158,7 +158,8 @@ public class AcceptedTaskActivity extends AppCompatActivity {
                     TextView time = new TextView(AcceptedTaskActivity.this);
                     time.setGravity(Gravity.LEFT);
                     time.setTextColor(Color.GRAY);
-                    time.setText("theTime");
+                    time.setText(theTime);
+                    //Log.d("theTime",theTime);
 
 
                     TableRow body=new TableRow(AcceptedTaskActivity.this);

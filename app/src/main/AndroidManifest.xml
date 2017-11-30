@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".EmployeeActivity"
-            android:label="Employee View"></activity>
+            android:label="Employee View" />
         <activity
             android:name=".AvailableTasksListActivity"
             android:label="Available Task List" />
@@ -25,11 +25,11 @@
             android:label="Available Task" />
         <activity
             android:name=".AcceptedTaskActivity"
-            android:windowSoftInputMode="stateVisible|adjustPan"
-            android:label="Accepted Task" />
+            android:label="Accepted Task"
+            android:windowSoftInputMode="stateVisible|adjustPan" />
         <activity
             android:name=".LoginActivity"
-            android:label="Login"></activity>
+            android:label="Login" />
         <activity
             android:name=".VehicleOwnerActivity"
             android:label="vehicle Owner View" />
@@ -44,7 +44,9 @@
         </activity>
         <activity
             android:name=".AcceptedTasksListActivity"
-            android:label="Accepted Task List"></activity>
+            android:label="Accepted Task List" />
+        <activity android:name=".EmpDetailsActivity" />
+        <activity android:name=".VehicleDetailsActivity"></activity>
     </application>
 
 </manifest>
