@@ -66,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="psudoAction"
+            android:onClick="goToLocationListnerActivity"
             android:text="My Location" />
     </TableRow>
 

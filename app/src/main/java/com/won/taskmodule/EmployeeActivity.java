@@ -66,6 +66,11 @@ public class EmployeeActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    void goToLocationListnerActivity(View view) {
+        Intent intent = new Intent(EmployeeActivity.this, Testing.class);
+        startActivity(intent);
+
+    }
 
 
 
