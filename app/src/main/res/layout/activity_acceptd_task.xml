@@ -1,100 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Task Name" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Name" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TaskID" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TaskID" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskArea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Task Area" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Task Area" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewContactName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ContactName" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ContactName" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewContactNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ContactNumber" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewContactNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ContactNumber" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewDeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Deadline" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewDeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deadline" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Description" />
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Description" />
 
-        <TextView
-            android:id="@+id/textViewAcceptedDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="AcceptedDate" />
-    </TableRow>
+
+    <TextView
+        android:id="@+id/textViewAcceptedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AcceptedDate"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="57dp" />
+
 
     <ScrollView
         android:id="@+id/ScrollViewChat"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="200dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMessage">
 
         <TableLayout
             android:id="@+id/tableLayoutChat"
@@ -102,52 +78,46 @@
             android:layout_height="wrap_content"
             android:background="@color/black_overlay">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
         </TableLayout>
     </ScrollView>
-    <TableRow
+
+
+    <ImageButton
+        android:id="@+id/button4"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@color/windowBackground"
+        android:onClick="sendMessage"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/send" />
+
+
+    <Button
+        android:id="@+id/buttonCompleteTask"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="psudoAction"
+        android:text="Task completed"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="193dp" />
 
-        <EditText
-            android:id="@+id/editTextMessage"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:text="" />
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="sendMessage"
-            android:text="Send" />
+    <EditText
+        android:id="@+id/editTextMessage"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Type your message here.."
+        android:theme="@style/editTextTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    </TableRow>
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:layout_marginTop="50dp"
-            android:id="@+id/buttonCompleteTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="psudoAction"
-            android:text="Task completed" />
 
-    </TableRow>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

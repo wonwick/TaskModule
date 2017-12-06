@@ -5,7 +5,7 @@ android {
     defaultConfig.applicationId = "com.won.taskmodule"
     useLibrary 'org.apache.http.legacy'
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.won.taskmodule"
         minSdkVersion 15
@@ -32,7 +32,6 @@ dependencies {
 
 
     compile 'org.apache.httpcomponents:httpcore:4.4.1'
-    compile 'org.apache.httpcomponents:httpclient:4.5'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.firebase:firebase-database:10.0.1'
