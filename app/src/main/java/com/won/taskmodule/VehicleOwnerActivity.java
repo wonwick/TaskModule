@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class VehicleOwnerActivity extends AppCompatActivity {
 
@@ -47,6 +48,12 @@ public class VehicleOwnerActivity extends AppCompatActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
 
+
+    }
+
+    void goToMyVehicleActivity(View view) {
+        Intent intent = new Intent(VehicleOwnerActivity.this, MyVehicleActivity.class);
+        startActivity(intent);
 
     }
 }
