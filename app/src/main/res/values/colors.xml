@@ -7,5 +7,5 @@
     <color name="textColorPrimary">#FAFAFA</color>
     <color name="textColorSecondary">#424242</color>
     <color name="textSuperWhite">#FFFF</color>
-    <color name="black_overlay">#E0E0E0</color>
+    <color name="secondaryBackground">#616161</color>
 </resources>

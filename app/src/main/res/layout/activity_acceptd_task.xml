@@ -11,72 +11,203 @@
         android:id="@+id/textViewTaskName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Task Name" />
+        android:layout_marginStart="8dp"
+        android:text="Task Name"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskNameLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskNameLable" />
 
 
     <TextView
         android:id="@+id/textViewTaskID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TaskID" />
+        android:layout_marginStart="8dp"
+        android:text="TaskID"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskIDLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskIDLable" />
 
 
     <TextView
         android:id="@+id/textViewTaskArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Task Area" />
+        android:layout_marginStart="8dp"
+        android:text="Task Area"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskAreaLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskAreaLable" />
 
 
     <TextView
         android:id="@+id/textViewContactName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ContactName" />
+        android:layout_marginStart="8dp"
+        android:text="ContactName"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewContactNameLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewContactNameLable" />
 
 
     <TextView
         android:id="@+id/textViewContactNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ContactNumber" />
+        android:layout_marginStart="8dp"
+        android:text="ContactNumber"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewContactNumberLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewContactNumberLable" />
 
 
     <TextView
         android:id="@+id/textViewDeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Deadline" />
-
-
-    <TextView
-        android:id="@+id/textViewDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Description" />
+        android:layout_marginStart="8dp"
+        android:text="Deadline"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewDeadlineLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewDeadlineLable" />
 
 
     <TextView
         android:id="@+id/textViewAcceptedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:text="AcceptedDate"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="57dp" />
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewAcceptedDateLable"
+        app:layout_constraintStart_toEndOf="@+id/textViewAcceptedDateLable" />
+
+
+    <TextView
+        android:id="@+id/textViewTaskNameLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Task"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textViewTaskIDLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Task ID"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskNameLable" />
+
+
+    <TextView
+        android:id="@+id/textViewTaskAreaLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Location"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskIDLable" />
+
+
+    <TextView
+        android:id="@+id/textViewContactNameLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Client"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskAreaLable"/>
+
+
+    <TextView
+        android:id="@+id/textViewContactNumberLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Contact"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContactNameLable" />
+
+
+    <TextView
+        android:id="@+id/textViewDeadlineLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Deadline"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContactNumberLable" />
+
+
+    <TextView
+        android:id="@+id/textViewAcceptedDateLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Accepted at"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDeadlineLable" />
 
 
     <ScrollView
         android:id="@+id/ScrollViewChat"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextMessage">
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/textSuperWhite"
+        app:layout_constraintBottom_toTopOf="@+id/editTextMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCompleteTask">
 
         <TableLayout
             android:id="@+id/tableLayoutChat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/black_overlay">
+            android:background="@color/windowBackground">
 
         </TableLayout>
     </ScrollView>
@@ -85,9 +216,9 @@
     <ImageButton
         android:id="@+id/button4"
         android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/windowBackground"
         android:onClick="sendMessage"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,27 +228,70 @@
 
     <Button
         android:id="@+id/buttonCompleteTask"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginRight="28dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:onClick="psudoAction"
-        android:text="Task completed"
+        android:text="complete"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteY="193dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcceptedDate" />
 
     <EditText
         android:id="@+id/editTextMessage"
         android:layout_width="0dp"
         android:layout_height="40dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="16dp"
-        android:ems="10"
+        android:layout_marginStart="8dp"
+        android:textSize="20sp"
+        android:hint="Type your message here.."
         android:inputType="text"
-        android:text="Type your message here.."
+        android:textColor="@color/textColorSecondary"
         android:theme="@style/editTextTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionLable"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:text="Description"
+        android:textStyle="bold"
+        android:textColor="@color/textColorSecondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/scrollView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewAcceptedDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewAcceptedDate"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionLable">
+
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:text="Description"
+            android:textColor="@color/textColorSecondary" />
+
+
+    </ScrollView>
 
 
 </android.support.constraint.ConstraintLayout>

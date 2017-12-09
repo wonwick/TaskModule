@@ -1,36 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textViewVehicleRegNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingBottom="4dp"
+        android:paddingTop="4dp"
+        android:text="TaskName"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewVehicleRegNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginLeft="10dp"
-            android:text="RegNo"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
 
-            android:textSize="20dp" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewVehicleBrandModel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:paddingBottom="2dp"
+        android:paddingTop="2dp"
+        android:text="Area"
+        android:textAlignment="textEnd"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewVehicleRegNo"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <TableRow
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewVehicleBrandModel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="vehicle brand model"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="55dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </TableRow>
-</LinearLayout>
+    </FrameLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -8,13 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class EmployeeActivity extends AppCompatActivity {
     private Boolean exit = false;
+    SharedPreferences sharedPreferences ;
+    String userName;
+    TextView userNameHolder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        userName = sharedPreferences.getString("appUser", "");
+        userNameHolder = (TextView) findViewById(R.id.UseName);
+        userNameHolder.setText(userName);
 
     }
     @Override
@@ -22,6 +30,7 @@ public class EmployeeActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

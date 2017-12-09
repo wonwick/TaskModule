@@ -1,98 +1,211 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="81dp">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Task Name" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Task Name"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskNameLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskNameLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskID"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TaskID" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TaskID"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskIDLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskIDLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTaskArea"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Task Area" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Task Area"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskAreaLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewTaskAreaLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewContactName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ContactName" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ContactName"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewContactNameLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewContactNameLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/textViewContactNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="ContactNumber"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewContactNumberLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewContactNumberLabel" />
 
-        <TextView
-            android:id="@+id/textViewContactNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ContactNumber" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewDeadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Deadline"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewDeadlineLabel"
+        app:layout_constraintStart_toEndOf="@+id/textViewDeadlineLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewDeadline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Deadline" />
-    </TableRow>
+    <TextView
+        android:id="@+id/textViewTaskNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Task"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/textViewTaskIDLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Task ID"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskNameLabel" />
+
+
+    <TextView
+        android:id="@+id/textViewTaskAreaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Location"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskIDLabel" />
+
+
+    <TextView
+        android:id="@+id/textViewContactNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Client"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskAreaLabel" />
+
+    <TextView
+        android:id="@+id/textViewContactNumberLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Contact"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContactNameLabel" />
+
+    <TextView
+        android:id="@+id/textViewDeadlineLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Deadline"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewContactNumberLabel" />
+
+
+    <Button
+        android:id="@+id/buttonAcceptTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="goToAcceptedTaskView"
+        android:text="Accept Task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDescriptionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Description"
+        android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDeadlineLabel" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAcceptTask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionLabel">
 
         <TextView
             android:id="@+id/textViewDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description" />
-    </TableRow>
+            android:text="Description"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp" />
+    </ScrollView>
 
-    <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        <Button
-            android:id="@+id/buttonAcceptTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="goToAcceptedTaskView"
-            android:text="Accept Task" />
-
-    </TableRow>
-
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

@@ -1,95 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:layout_editor_absoluteY="81dp">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewNIC"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewNIC" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewNIC"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewNICLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewNICLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewFirstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewFirstName" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewFirstName"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewFirstNameLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewFirstNameLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewLastName" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewLastName"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLastNameLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewLastNameLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewAddress" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewAddress"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewAddressLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewAddressLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewGender" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewGender"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewGenderLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewGenderLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewAvailability"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewAvailability" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewAvailability"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewAvailabilityLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewAvailabilityLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewManagerID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewManagerID" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewManagerID"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewManagerIDLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewManagerIDLabel" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="textViewManagerID" />
-    </TableRow>
+            android:layout_marginStart="8dp"
+            android:text="textViewNumber"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/textViewNumberLabel"
+            app:layout_constraintStart_toEndOf="@+id/textViewNumberLabel" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/textViewNICLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="NIC"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textViewFirstNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="First Name"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewNICLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewLastNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Last Name"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewFirstNameLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewAddressLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Address"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLastNameLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewGenderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Gender"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAddressLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewAvailabilityLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Availability"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewGenderLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewManagerIDLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Manager"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewAvailabilityLabel" />
+
+
+        <TextView
+            android:id="@+id/textViewNumberLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Number"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewManagerIDLabel" />
+
+</android.support.constraint.ConstraintLayout>

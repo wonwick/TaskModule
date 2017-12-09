@@ -3,10 +3,15 @@ package com.won.taskmodule;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Message;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.text.style.BackgroundColorSpan;
 import android.util.Log;
+import android.util.Size;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -142,35 +147,49 @@ public class AcceptedTaskActivity extends AppCompatActivity {
 
                     TableRow header=new TableRow(AcceptedTaskActivity.this);
                     ViewGroup.MarginLayoutParams params = new ViewGroup.MarginLayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            ViewGroup.LayoutParams.MATCH_PARENT,
+                            ViewGroup.LayoutParams.WRAP_CONTENT);
                     header.setLayoutParams(params);
+                    header.setBackgroundColor(Color.WHITE);
 
                     TextView sender = new TextView(AcceptedTaskActivity.this);
-                    sender.setGravity(Gravity.LEFT);
+                    sender.setGravity(Gravity.START);
+                    sender.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+                    sender.setTypeface(Typeface.DEFAULT_BOLD);
+                    sender.setPadding(8,0,0,0);
                     if (theSender.equals(userName)){
-                        sender.setTextColor(Color.BLUE);
+                        sender.setTextColor(Color.parseColor("#304FFE"));
+                        sender.setText("Me");
                     }
                     else{
-                        sender.setTextColor(Color.GREEN);
+                        sender.setTextColor(Color.parseColor("#1B5E20"));
+                        sender.setText(theSender);
                     }
-                    sender.setText(theSender);
+
 
                     TextView time = new TextView(AcceptedTaskActivity.this);
-                    time.setGravity(Gravity.LEFT);
+                    time.setGravity(Gravity.END);
                     time.setTextColor(Color.GRAY);
+                    time.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
+                    time.setPadding(0,0,8,0);
                     time.setText(theTime);
+
                     //Log.d("theTime",theTime);
 
 
                     TableRow body=new TableRow(AcceptedTaskActivity.this);
                     body.setLayoutParams(params);
+                    body.setBackgroundColor(Color.WHITE);
                     TextView message = new TextView(AcceptedTaskActivity.this);
-                    message.setGravity(Gravity.LEFT);
-
+                    message.setGravity(Gravity.START);
+                    message.setTextColor(Color.parseColor("#424242"));
+                    message.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
                     message.setText(theMessege);
+                    message.setPadding(8,0,0,0);
 
                     TableRow spacing=new TableRow(AcceptedTaskActivity.this);
                     spacing.setLayoutParams(params);
+                    spacing.setBackgroundColor(Color.WHITE);
                     TextView space = new TextView(AcceptedTaskActivity.this);
 
 
