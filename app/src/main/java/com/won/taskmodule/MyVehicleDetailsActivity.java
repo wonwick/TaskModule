@@ -96,6 +96,7 @@ public class MyVehicleDetailsActivity extends AppCompatActivity {
     void goToLiveDetailsActivity(View view) {
         Intent goToAcceptedTasks = new Intent(MyVehicleDetailsActivity.this, LiveDetailsActivity.class);
         goToAcceptedTasks.putExtra("vehicleNo", vehicleNo);
+        Log.d("SendingVehicleNo",vehicleNo);
         startActivity(goToAcceptedTasks);
 
     }

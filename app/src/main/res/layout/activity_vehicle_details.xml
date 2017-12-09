@@ -79,8 +79,18 @@
             android:layout_height="wrap_content"
             android:text="textViewPicture" />
     </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="openOBDapp"
+        android:text="See Vehicle condition" />
+    </TableRow>
 
 
 

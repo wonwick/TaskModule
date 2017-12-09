@@ -146,7 +146,7 @@
             android:id="@+id/buttonCompleteTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="psudoAction"
+            android:onClick="CompleteTask"
             android:text="Task completed" />
 
     </TableRow>
