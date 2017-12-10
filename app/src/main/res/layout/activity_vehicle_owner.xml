@@ -26,24 +26,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="goToAvailableActivity"
+            android:onClick="goToVehicleOwnerDetailsActivity"
             android:text="My Details" />
     </TableRow>
 
 
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="goToEmpDetailsActivity"
-            android:text="Contact Management" />
-    </TableRow>
 
 
 </LinearLayout>

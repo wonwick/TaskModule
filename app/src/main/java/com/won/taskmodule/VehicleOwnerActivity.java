@@ -56,4 +56,11 @@ public class VehicleOwnerActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    void goToVehicleOwnerDetailsActivity(View view) {
+        Intent intent = new Intent(VehicleOwnerActivity.this, VehicleOwnerDetailsActivity.class);
+        startActivity(intent);
+
+    }
+
 }
