@@ -65,6 +65,8 @@ public class TaskActivity extends AppCompatActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
         AvailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
+        unavailableTask=FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);;
+        unavailableTaskOverview=FirebaseDatabase.getInstance().getReference("OverviewAvailableTask").child(taskId);;
 
     }
 

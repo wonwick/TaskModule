@@ -28,6 +28,7 @@ public class LiveDetailsActivity extends AppCompatActivity {
     TableLayout t1;
     FirebaseDatabase secondDatabase;
     String vin;
+    FirebaseApp secondApp=null;
     DatabaseReference acceptedTask;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +40,13 @@ public class LiveDetailsActivity extends AppCompatActivity {
                 .setApplicationId("1:900422074195:android:0b4422affc419165")
                 .setDatabaseUrl("https://android-obd-reader-master.firebaseio.com")
                 .build();
-        FirebaseApp secondApp = FirebaseApp.initializeApp(getApplicationContext(), options, "second app");
-        secondDatabase = FirebaseDatabase.getInstance(secondApp);
+        Log.d("noOFapps:",""+FirebaseApp.getApps(this).size());
+        if (FirebaseApp.getApps(this).size()<2) {
+            secondApp = FirebaseApp.initializeApp(getApplicationContext(), options, "second app");
+        }
+
+
+        secondDatabase = FirebaseDatabase.getInstance(FirebaseApp.getApps(this).get(1));
         Intent intent = getIntent();
         vin = intent.getStringExtra("vehicleNo");
         Log.d("vinGot:",vin);
