@@ -63,7 +63,6 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         setContentView(R.layout.activity_acceptd_task);
 
         Intent intent = getIntent();
-
         taskId = intent.getStringExtra("TASK_ID");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");

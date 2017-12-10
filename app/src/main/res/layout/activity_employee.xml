@@ -70,16 +70,5 @@
             android:text="My Location" />
     </TableRow>
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/button7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:onClick="psudoAction"
-            android:text="Vehicle condition" />
-    </TableRow>
 </LinearLayout>
