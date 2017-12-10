@@ -62,11 +62,10 @@ public class TaskActivity extends AppCompatActivity {
         textViewTaskName.setText(taskName);
         textViewTaskArea.setText(taskArea);
 
-        AvailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
-        unavailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
-        unavailableTaskOverview = FirebaseDatabase.getInstance().getReference("OverviewAvailableTask").child(taskId);
+        AvailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
+
     }
 
     @Override

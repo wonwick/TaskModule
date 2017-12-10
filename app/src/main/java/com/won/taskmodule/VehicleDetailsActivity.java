@@ -1,10 +1,13 @@
 package com.won.taskmodule;
 
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -49,7 +52,6 @@ public class VehicleDetailsActivity extends AppCompatActivity {
         textViewModel=(TextView) findViewById(R.id.textViewModel);
         textViewPicture=(TextView) findViewById(R.id.textViewPicture);
 
-
         empDetailsRequest.setUrl("http://35.188.127.20/mobileApp/getVehicleDetails.php");
         String[] keyWords = {"userName"};
         String[] values = {userName};
@@ -84,10 +86,21 @@ public class VehicleDetailsActivity extends AppCompatActivity {
 
 
 
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
         }
     }
+
+    void openOBDapp(View view) {
+        String mystring = "Hello";
+        Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.github.pires.obd.reader");
+        if (launchIntent != null) {
+            launchIntent.putExtra("vinFromTaskModule", vehicleNO);
+            startActivity(launchIntent);
+        }
+    }
 }
+

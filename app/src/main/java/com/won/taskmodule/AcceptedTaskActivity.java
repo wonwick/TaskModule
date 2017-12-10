@@ -43,7 +43,8 @@ public class AcceptedTaskActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences ;
     String userName;
 
-
+    DatabaseReference unavailableTask;
+    DatabaseReference unavailableTaskOverview;
     ScrollView scrolview;
     TextView textViewContactName ;
     TextView textViewContactNumber ;
@@ -56,6 +57,7 @@ public class AcceptedTaskActivity extends AppCompatActivity {
     EditText editTextMessage;
     private static FirebaseDatabase fbdb;
     TableLayout tableLayoutChat;
+    DatabaseReference acceptedTask;
     static boolean calledAlready = false;
 //     acceptedTask;
 //    DatabaseReference chat;
@@ -70,7 +72,8 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         taskId = intent.getStringExtra("TASK_ID");
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
-
+        unavailableTask = FirebaseDatabase.getInstance().getReference("availableTasks").child(taskId);
+        unavailableTaskOverview = FirebaseDatabase.getInstance().getReference("OverviewAvailableTask").child(taskId);
 
 
         if (fbdb==null)
@@ -98,30 +101,34 @@ public class AcceptedTaskActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         //attaching value event listener
-        DatabaseReference acceptedTask = fbdb.getReference("acceptedTasks").child(userName).child(taskId);
+        acceptedTask = fbdb.getReference("acceptedTasks").child(userName).child(taskId);
         acceptedTask.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 AcceptedTask task = dataSnapshot.getValue(AcceptedTask.class);
+                try {
+                    taskId = task.getId();
+                    taskName = task.getName();
+                    taskArea = task.getArea();
+                    contactName = task.getContactName();
+                    contactNumber = task.getContactNumber();
+                    deadline = task.getDeadline();
+                    description = task.getDescription();
+                    acceptedDate = task.getAcceptedDate();
 
-                taskId = task.getId();
-                taskName = task.getName();
-                taskArea = task.getArea();
-                contactName = task.getContactName();
-                contactNumber = task.getContactNumber();
-                deadline = task.getDeadline();
-                description = task.getDescription();
-                acceptedDate=task.getAcceptedDate();
-
-                textViewTaskID.setText(taskId);
-                textViewTaskName.setText(taskName);
-                textViewTaskArea.setText(taskArea);
-                textViewContactName.setText(contactName);
-                textViewContactNumber.setText(contactNumber);
-                textViewDeadline.setText(deadline);
-                textViewDescription.setText(description);
-                textViewAcceptedDate.setText(acceptedDate);
+                    textViewTaskID.setText(taskId);
+                    textViewTaskName.setText(taskName);
+                    textViewTaskArea.setText(taskArea);
+                    textViewContactName.setText(contactName);
+                    textViewContactNumber.setText(contactNumber);
+                    textViewDeadline.setText(deadline);
+                    textViewDescription.setText(description);
+                    textViewAcceptedDate.setText(acceptedDate);
+                }
+                catch (Exception e){
+                    Log.d("AcceptedTaskError","onStart,accptedTaskVAlueListner");
+                }
 
             }
 
@@ -221,16 +228,15 @@ public class AcceptedTaskActivity extends AppCompatActivity {
 
     }
 
-    void psudoAction(View view) {
-        //do nothing
-        /*Oct 3, 2017 12:06:36 PMaddclose
-        sherlock:
-        "first chatEntry"
-        Oct 3, 2017 12:08:36 PM
-        admin:
-        "reply for the first Entry"
-        Oct 3, 2017 12:11:36 PM:
-        "second chat entry"*/
+    void CompleteTask(View view) {
+        DatabaseReference chat=FirebaseDatabase.getInstance().getReference("chat").child(taskId).push();
+        chat.child("sender").setValue(userName);
+        chat.child("message").setValue("----- C O M P L E T E D -----");
+        chat.child("time").setValue(DateFormat.getDateTimeInstance().format(new Date()));
+        startActivity(new Intent(AcceptedTaskActivity.this, EmployeeActivity.class));
+        addToCompletedTasks();
+        removeFromAcceptedTasks();
+
 
     }
 
@@ -245,5 +251,41 @@ public class AcceptedTaskActivity extends AppCompatActivity {
         scrolview.fullScroll(ScrollView.FOCUS_DOWN);
 
     }
+    void addToCompletedTasks(){
+        DatabaseReference newAcceptedTask = FirebaseDatabase.getInstance().getReference("completedTasks").child(userName).child(taskId);
+        newAcceptedTask.child("id").setValue(taskId);
+        newAcceptedTask.child("name").setValue(taskName);
+        newAcceptedTask.child("area").setValue(taskArea);
+        newAcceptedTask.child("contactName").setValue(contactName);
+        newAcceptedTask.child("contactNumber").setValue(contactNumber);
+        newAcceptedTask.child("deadline").setValue(deadline);
+        newAcceptedTask.child("description").setValue(description);
+        newAcceptedTask.child("acceptedDate").setValue(acceptedDate);
+        newAcceptedTask.child("CompletedDate").setValue(DateFormat.getDateTimeInstance().format(new Date()));
 
+
+
+
+
+    }
+
+    void removeFromAcceptedTasks() {
+        acceptedTask.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot detailsSnapshot : dataSnapshot.getChildren()) {
+                    detailsSnapshot.getRef().removeValue();
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 }
