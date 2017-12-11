@@ -121,6 +121,9 @@ public class TaskActivity extends AppCompatActivity {
         newAcceptedTask.child("deadline").setValue(deadline);
         newAcceptedTask.child("description").setValue(description);
         newAcceptedTask.child("acceptedDate").setValue(DateFormat.getDateTimeInstance().format(new Date()));
+//        DatabaseReference chatCount = FirebaseDatabase.getInstance().getReference("chatCount").child(taskId);
+//        chatCount.child(userName).setValue(0);
+//        chatCount.child("manager").setValue(1);
 
 
 

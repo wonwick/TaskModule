@@ -63,10 +63,15 @@ public class LiveDetailsActivity extends AppCompatActivity {
                 HashMap <String,String> OBDReadings= (HashMap<String, String>) dataSnapshot.getValue();
                 int i=0;
                 t1.removeAllViews();
-                for (Map.Entry<String, String> entry : OBDReadings.entrySet())
-                {
-                    addTableRow("id"+i,entry.getKey(),entry.getValue());
-                    i++;
+                if (OBDReadings==null){
+                    addTableRow("id" + i, "No Values Available", " At this moment ");
+                }
+
+                else {
+                    for (Map.Entry<String, String> entry : OBDReadings.entrySet()) {
+                        addTableRow("id" + i, entry.getKey(), entry.getValue());
+                        i++;
+                    }
                 }
             }
 
