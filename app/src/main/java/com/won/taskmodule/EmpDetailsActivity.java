@@ -79,6 +79,7 @@ public class EmpDetailsActivity extends AppCompatActivity {
                 managerID=empDetails.getString("managerID");
                 number=empDetails.getString("number");
 
+
                 textViewNIC.setText(NIC);
                 textViewFirstName.setText(firstName);
                 textViewLastName.setText(lastName);
