@@ -8,13 +8,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 public class VehicleOwnerActivity extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
+    String userName;
+    TextView userNameHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vehicle_owner);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        userName = sharedPreferences.getString("appUser", "");
+        userNameHolder = findViewById(R.id.UseName);
+        userNameHolder.setText(userName);
 
     }
     @Override

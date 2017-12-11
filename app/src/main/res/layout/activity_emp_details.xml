@@ -21,30 +21,6 @@
 
 
         <TextView
-            android:id="@+id/textViewFirstName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="textViewFirstName"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewFirstNameLabel"
-            app:layout_constraintStart_toEndOf="@+id/textViewFirstNameLabel" />
-
-
-        <TextView
-            android:id="@+id/textViewLastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="textViewLastName"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="18sp"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textViewLastNameLabel"
-            app:layout_constraintStart_toEndOf="@+id/textViewLastNameLabel" />
-
-
-        <TextView
             android:id="@+id/textViewAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,34 +90,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/textViewFirstNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="First Name"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewNICLabel" />
-
-
-        <TextView
-            android:id="@+id/textViewLastNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:text="Last Name"
-            android:textColor="@color/textColorSecondary"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewFirstNameLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 
         <TextView
@@ -155,7 +104,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLastNameLabel" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewNICLabel" />
 
 
         <TextView
@@ -214,5 +163,54 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewManagerIDLabel" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="0dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/secondaryBackground"
+            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/textViewFirstName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="96dp"
+                    android:text="FName"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textViewLastName"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewLastName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:text="LName"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textViewFirstName" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/floatingActionButton2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="16dp"
+            android:backgroundTint="@color/windowBackground"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:srcCompat="@drawable/user" />
 
 </android.support.constraint.ConstraintLayout>

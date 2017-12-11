@@ -20,18 +20,6 @@
 
 
     <TextView
-        android:id="@+id/textViewTaskID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="TaskID"
-        android:textColor="@color/textColorSecondary"
-        android:textSize="14sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewTaskIDLable"
-        app:layout_constraintStart_toEndOf="@+id/textViewTaskIDLable" />
-
-
-    <TextView
         android:id="@+id/textViewTaskArea"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,12 +94,12 @@
 
 
     <TextView
-        android:id="@+id/textViewTaskIDLable"
+        android:id="@+id/textViewTaskAreaLable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Task ID"
+        android:layout_marginTop="4dp"
+        android:text="Location"
         android:textColor="@color/textColorSecondary"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -120,31 +108,17 @@
 
 
     <TextView
-        android:id="@+id/textViewTaskAreaLable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Location"
-        android:textColor="@color/textColorSecondary"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTaskIDLable" />
-
-
-    <TextView
         android:id="@+id/textViewContactNameLable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Client"
         android:textColor="@color/textColorSecondary"
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTaskAreaLable"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewTaskAreaLable" />
 
 
     <TextView
@@ -152,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Contact"
         android:textColor="@color/textColorSecondary"
         android:textSize="14sp"
@@ -166,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Deadline"
         android:textColor="@color/textColorSecondary"
         android:textSize="14sp"
@@ -180,7 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:text="Accepted at"
         android:textColor="@color/textColorSecondary"
         android:textSize="14sp"
@@ -192,16 +166,14 @@
     <ScrollView
         android:id="@+id/ScrollViewChat"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="128dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:background="@color/textSuperWhite"
         app:layout_constraintBottom_toTopOf="@+id/editTextMessage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonCompleteTask">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableLayout
             android:id="@+id/tableLayoutChat"
@@ -230,14 +202,12 @@
         android:id="@+id/buttonCompleteTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="28dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:onClick="psudoAction"
         android:text="complete"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAcceptedDate" />
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewChat"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/editTextMessage"
@@ -245,10 +215,10 @@
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:textSize="20sp"
         android:hint="Type your message here.."
         android:inputType="text"
         android:textColor="@color/textColorSecondary"
+        android:textSize="18sp"
         android:theme="@style/editTextTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button4"
@@ -256,17 +226,16 @@
 
     <TextView
         android:id="@+id/textViewDescriptionLable"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
         android:padding="4dp"
         android:text="Description"
-        android:textStyle="bold"
         android:textColor="@color/textColorSecondary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/scrollView2"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewAcceptedDateLable" />
 
 
     <ScrollView
@@ -275,10 +244,10 @@
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewAcceptedDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAcceptedDate"
+        app:layout_constraintBottom_toTopOf="@+id/ScrollViewChat"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCompleteTask"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewDescriptionLable"
         app:layout_constraintTop_toBottomOf="@+id/textViewDescriptionLable">
 
 

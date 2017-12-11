@@ -76,7 +76,7 @@ public class EmployeeActivity extends AppCompatActivity {
 
     }
     void goToLocationListnerActivity(View view) {
-        Intent intent = new Intent(EmployeeActivity.this, Testing.class);
+        Intent intent = new Intent(EmployeeActivity.this, AttendenceFringerprintActivity.class);
         startActivity(intent);
 
     }

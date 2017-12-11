@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:onClick="openOBDapp"
     android:orientation="vertical">
 
 
@@ -17,18 +18,6 @@
         android:textSize="18sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/textViewVehicleNOLabel"
         app:layout_constraintStart_toEndOf="@+id/textViewVehicleNOLabel" />
-
-
-    <TextView
-        android:id="@+id/textViewRegNO"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="textViewRegNO"
-        android:textColor="@color/textColorSecondary"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textViewRegNOLabel"
-        app:layout_constraintStart_toEndOf="@+id/textViewRegNOLabel" />
 
 
     <TextView
@@ -96,27 +85,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="Vehicle No"
         android:textColor="@color/textColorSecondary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/textViewRegNOLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:text="Reg No"
-        android:textColor="@color/textColorSecondary"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewVehicleNOLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
 
     <TextView
@@ -130,7 +105,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewRegNOLabel" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewVehicleNOLabel" />
 
 
     <TextView
@@ -189,5 +164,57 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLastName1label" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="Diagnose Details"
+        android:onClick="openOBDapp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPicture" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="96dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/secondaryBackground"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <TextView
+            android:id="@+id/textViewRegNO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:layout_marginStart="96dp"
+            android:text="Plate No"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:backgroundTint="@color/windowBackground"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@+id/frameLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/user" />
 
 </android.support.constraint.ConstraintLayout>

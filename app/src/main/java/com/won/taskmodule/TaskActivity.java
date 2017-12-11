@@ -100,11 +100,12 @@ public class TaskActivity extends AppCompatActivity {
     }
 
     void goToAcceptedTaskView(View view) {
-        addToAcceptedTasks();
-        removeFromAvailableTasks();
         Intent goToAcceptedTasks = new Intent(TaskActivity.this, AcceptedTaskActivity.class);
         goToAcceptedTasks.putExtra("TASK_ID", taskId);
         startActivity(goToAcceptedTasks);
+        addToAcceptedTasks();
+        removeFromAvailableTasks();
+
 
 
     }

@@ -18,13 +18,13 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".EmployeeActivity"
-            android:label="Employee View" />
+            android:label="Dashboard" />
         <activity
             android:name=".AvailableTasksListActivity"
             android:label="Available Task List" />
         <activity
             android:name=".TaskActivity"
-            android:label="Available Task" />
+            android:label="Task Details" />
         <activity
             android:name=".AcceptedTaskActivity"
             android:label="Accepted Task"
@@ -34,7 +34,7 @@
             android:label="Login" />
         <activity
             android:name=".VehicleOwnerActivity"
-            android:label="vehicle Owner View" />
+            android:label="Dashboard" />
         <activity
             android:name=".SplashActivity"
             android:theme="@android:style/Theme.NoTitleBar">
@@ -75,7 +75,8 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".VehicleOwnerDetailsActivity"></activity>
+        <activity android:name=".VehicleOwnerDetailsActivity" />
+        <activity android:name=".AttendenceFringerprintActivity"></activity>
     </application>
 
 </manifest>

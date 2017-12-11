@@ -107,7 +107,7 @@ public class AcceptedTaskActivity extends AppCompatActivity {
 
                 AcceptedTask task = dataSnapshot.getValue(AcceptedTask.class);
                 try {
-                    taskId = task.getId();
+                    //taskId = task.getId();
                     taskName = task.getName();
                     taskArea = task.getArea();
                     contactName = task.getContactName();
@@ -116,7 +116,7 @@ public class AcceptedTaskActivity extends AppCompatActivity {
                     description = task.getDescription();
                     acceptedDate = task.getAcceptedDate();
 
-                    textViewTaskID.setText(taskId);
+                    //textViewTaskID.setText(taskId);
                     textViewTaskName.setText(taskName);
                     textViewTaskArea.setText(taskArea);
                     textViewContactName.setText(contactName);
