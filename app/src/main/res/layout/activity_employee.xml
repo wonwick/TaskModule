@@ -88,7 +88,7 @@
         android:layout_marginStart="16dp"
         android:background="@color/textSuperWhite"
         android:onClick="goToLocationListnerActivity"
-        android:text="My Location"
+        android:text="Attend to work"
         android:textColor="@color/textColorSecondary"
         app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"

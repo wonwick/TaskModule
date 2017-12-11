@@ -1,10 +1,19 @@
 package com.won.taskmodule;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -13,12 +22,21 @@ import java.util.TimerTask;
 import com.multidots.fingerprintauth.FingerPrintAuthCallback;
 import com.multidots.fingerprintauth.FingerPrintAuthHelper;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class AttendenceFringerprintActivity extends Activity implements FingerPrintAuthCallback {
     //implement FingerPrintAuthCallback predefined function set on activity
     FingerPrintAuthHelper mAttendanceFingerprint; //defining fingerprint anchor
     public int attempt_count= 5; //defining attempt counter for fingerprint
     public static Timer timer = new Timer(); // casting timer objects
+    SharedPreferences sharedPreferences;
+    String userName;
     public static int seconds_left = 30; // defining time for delay
+    int attendance;
+    SharedPreferences.Editor editor;
+    Context mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -26,6 +44,10 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendence_fringerprint);
         mAttendanceFingerprint= FingerPrintAuthHelper.getHelper(this, this);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        userName=sharedPreferences.getString("appUser","");
+        editor = sharedPreferences.edit();
+        mContext=getApplicationContext();
         //casting fingerprint object
     }
 
@@ -58,6 +80,14 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
     @Override
     public void onAuthSuccess(FingerprintManager.CryptoObject cryptoObject) {
         Toast.makeText(this,"authentication verified!",Toast.LENGTH_SHORT).show();
+        attendance= sharedPreferences.getInt("attendance", 0);
+        AttendenceFringerprintActivity.AttendanceDetailsPostRequest sendAttendance=new AttendenceFringerprintActivity.AttendanceDetailsPostRequest();
+        String [] keywords={"userName","attend"};
+        sendAttendance.setKeywords(keywords);
+        String [] values={userName,""+attendance};
+        sendAttendance.setValues(values);
+        sendAttendance.setUrl("http://35.188.127.20/mobileApp/addAttendance.php");
+        sendAttendance.execute();
         //Intent nextActivity = new Intent("com.example.sasankasandes.sparktec.OBDpairActivity");
         //startActivity(nextActivity);
 
@@ -120,5 +150,38 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
             }
         };
         timer.scheduleAtFixedRate(task,0,1000);
+    }
+    public void StartService() {
+        startService(new Intent(this, LocationService.class));
+        // newMessage messageReceiver = new newMessage();
+        // registerReceiver(messageReceiver, new IntentFilter("loc"));
+
+    }
+
+    public void StopService() {
+        stopService(new Intent(this, LocationService.class));
+        // Log.d("GPSloc","lat: "+LocationService.lat+" long: "+LocationService.lon);
+    }
+
+
+    class AttendanceDetailsPostRequest extends SendPostRequest {
+
+        @Override
+        protected void onPostExecute(String result) {
+            Log.d("MyVehiclesDetails",result);
+             attendance= sharedPreferences.getInt("attendance", 0);
+             attendance=(attendance+1)%2;
+             editor.putInt("attendance",attendance);
+             editor.commit();
+
+            Log.d("sasa","intent succes");
+            Intent intent = new Intent(AttendenceFringerprintActivity.this, EmployeeActivity.class);
+            startActivity(intent);
+
+
+
+
+
+        }
     }
 }

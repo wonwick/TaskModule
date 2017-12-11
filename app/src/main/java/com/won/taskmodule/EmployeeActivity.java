@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class EmployeeActivity extends AppCompatActivity {
@@ -76,11 +77,35 @@ public class EmployeeActivity extends AppCompatActivity {
 
     }
     void goToLocationListnerActivity(View view) {
-        Intent intent = new Intent(EmployeeActivity.this, AttendenceFringerprintActivity.class);
+//        Button b=(Button) findViewById(R.id.button6);
+//        if(b.getText().equals("leave work")){
+//            b.setText("Attend to work");
+//            StopService();
+//
+//
+//        }
+//        else{
+//            b.setText("leave work");
+//            StartService();
+//
+//        }
+
+        Intent intent = new Intent(EmployeeActivity.this, Testing.class);
         startActivity(intent);
 
     }
 
+    public void StartService() {
+        startService(new Intent(this, LocationService.class));
+        // newMessage messageReceiver = new newMessage();
+        // registerReceiver(messageReceiver, new IntentFilter("loc"));
+
+    }
+
+    public void StopService() {
+        stopService(new Intent(this, LocationService.class));
+        // Log.d("GPSloc","lat: "+LocationService.lat+" long: "+LocationService.lon);
+    }
 
 
 
