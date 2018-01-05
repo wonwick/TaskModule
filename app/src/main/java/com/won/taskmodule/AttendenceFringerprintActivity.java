@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -43,7 +44,9 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
         //disable default title of the activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attendence_fringerprint);
+        //casting fingerprint object
         mAttendanceFingerprint= FingerPrintAuthHelper.getHelper(this, this);
+        //casting sharedpreference objects
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName=sharedPreferences.getString("appUser","");
         editor = sharedPreferences.edit();
@@ -54,21 +57,24 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
     @Override
     protected void onResume() {
         super.onResume();
-        //start finger print authentication
+        //start finger print authentication on resume
         mAttendanceFingerprint.startAuth();
     }
     @Override
     protected void onPause() {
         super.onPause();
-        //mAttendanceFingerprint.stopAuth();
+        //stop fingerprint authentication on pause
+        mAttendanceFingerprint.stopAuth();
     }
     @Override
     public void onNoFingerPrintHardwareFound() {
+        //if no fingerprint sensor found on the device toasts this
         Toast.makeText(this,"no fingerprint sensor",Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onNoFingerPrintRegistered() {
+        //if no fingerprint is registered toasts this message
         Toast.makeText(this,"enroll at least one fingerprint",Toast.LENGTH_SHORT).show();
     }
 
@@ -79,7 +85,9 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
 
     @Override
     public void onAuthSuccess(FingerprintManager.CryptoObject cryptoObject) {
+        //if authentication verified toast this message
         Toast.makeText(this,"authentication verified!",Toast.LENGTH_SHORT).show();
+        //set attendance and leave on database using
         attendance= sharedPreferences.getInt("attendance", 0);
         AttendenceFringerprintActivity.AttendanceDetailsPostRequest sendAttendance=new AttendenceFringerprintActivity.AttendanceDetailsPostRequest();
         String [] keywords={"userName","attend"};
@@ -96,10 +104,10 @@ public class AttendenceFringerprintActivity extends Activity implements FingerPr
     @Override
 
     public void onAuthFailed(int errorCode, String errorMessage) {
-
+        //attempt counter to restrict abusing fingerprint sensor or unauthorised attempts;
         attempt_count-=1;
         if (attempt_count>0){
-            ImageView fingerprintImage = (ImageView) findViewById(R.id.imageView3);
+            //ImageView fingerprintImage = (ImageView) findViewById(R.id.imageView3);
             //Animation shake = AnimationUtils.loadAnimation(AttendanceFingerprintActivity.this, R.anim.wobble);
             Toast.makeText(this, "Unable to recognize fingerprint You have " + attempt_count + "more attempts", Toast.LENGTH_SHORT).show();
             //shake.reset();

@@ -1,9 +1,12 @@
 package com.won.taskmodule;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +28,16 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        NetworkStatusDialogFragment networkStatusDialogFragment = new NetworkStatusDialogFragment();
+        if (!isNetworkConnected()){
+            networkStatusDialogFragment.show(fragmentManager,"");
+        }
     }
 
     void authenticate() {
@@ -107,5 +120,10 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         }
+    }
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
     }
 }

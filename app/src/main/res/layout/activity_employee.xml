@@ -39,7 +39,7 @@
         android:onClick="goToAcceptedTaskList"
         android:text="Accepted Tasks"
         android:textColor="@color/textColorSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -83,14 +83,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@color/textSuperWhite"
         android:onClick="goToLocationListnerActivity"
         android:text="Attend to work"
         android:textColor="@color/textColorSecondary"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -100,14 +100,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@color/textSuperWhite"
-        android:onClick="psudoAction"
-        android:text="Vehicle condition"
+        android:onClick="goToCompletedTaskList"
+        android:text="Completed Tasks"
         android:textColor="@color/textColorSecondary"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -142,7 +142,7 @@
         android:background="@color/textSuperWhite"
         app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/list" />
+        app:srcCompat="@drawable/history" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -155,7 +155,7 @@
         app:layout_constraintBottom_toTopOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:srcCompat="@drawable/car" />
+        app:srcCompat="@drawable/list" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -166,7 +166,7 @@
         android:background="@color/textSuperWhite"
         app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/location" />
+        app:srcCompat="@drawable/car" />
 
     <ImageView
         android:id="@+id/imageView6"
@@ -177,7 +177,7 @@
         android:background="@color/textSuperWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/tool" />
+        app:srcCompat="@drawable/fingerprint" />
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/frameLayout"

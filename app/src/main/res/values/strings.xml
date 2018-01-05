@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TaskModule</string>
+    <string name="app_name">Sparktec</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
@@ -20,4 +20,7 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_maps">Map</string>
     <string name="my_location_change">My Location</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

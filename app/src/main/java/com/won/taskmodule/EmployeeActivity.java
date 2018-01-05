@@ -16,16 +16,33 @@ public class EmployeeActivity extends AppCompatActivity {
     SharedPreferences sharedPreferences ;
     String userName;
     TextView userNameHolder;
+    int attendance ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         userName = sharedPreferences.getString("appUser", "");
+        attendance=sharedPreferences.getInt("attendance",0);
         userNameHolder = (TextView) findViewById(R.id.UseName);
         userNameHolder.setText(userName);
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Button b=(Button) findViewById(R.id.button6);
+        if(attendance==1){
+         b.setText("leave work");
+         StartService();
+        }
+        else {
+            b.setText("attend to work");
+            StopService();
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -77,22 +94,13 @@ public class EmployeeActivity extends AppCompatActivity {
 
     }
     void goToLocationListnerActivity(View view) {
-//        Button b=(Button) findViewById(R.id.button6);
-//        if(b.getText().equals("leave work")){
-//            b.setText("Attend to work");
-//            StopService();
-//
-//
-//        }
-//        else{
-//            b.setText("leave work");
-//            StartService();
-//
-//        }
-
-        Intent intent = new Intent(EmployeeActivity.this, Testing.class);
+        Intent intent = new Intent(EmployeeActivity.this, AttendenceFringerprintActivity.class);
         startActivity(intent);
 
+    }
+    void goToCompletedTaskList(View view) {
+        Intent intent = new Intent(EmployeeActivity.this, CompletedTaskList.class);
+        startActivity(intent);
     }
 
     public void StartService() {
